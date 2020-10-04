@@ -4,7 +4,7 @@
 # $ sudo apt install yad xterm ffmpeg
 # Philippe734 @ 2020
 
-defaultpath="$HOME/Vidéos"
+defaultpath="$HOME"
 apptitle="Tiny VAAPI recorder"
 filenameoutput="record"_$(date +"%m%d%H%M%S")".mkv"
 
