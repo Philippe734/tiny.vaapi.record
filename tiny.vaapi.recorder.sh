@@ -63,10 +63,11 @@ begin
 
 forminprogress
 
-# Command to record screen:
-#ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $resolution -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -b:v 15M -preset superfast '$defaultpath/$filenameoutput'
+# Command to record at bitrate
+#xterm -iconic -e "ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $resolution -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -b:v 20M -preset superfast '$defaultpath/$filenameoutput'"
 
-xterm -iconic -e "ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $resolution -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -b:v 20M -preset superfast '$defaultpath/$filenameoutput'"
+# To record with a quality level near lossless
+xterm -iconic -e "ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $resolution -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -qp 17 -preset ultrafast '$defaultpath/$filenameoutput'"
 
 exit 0
 
