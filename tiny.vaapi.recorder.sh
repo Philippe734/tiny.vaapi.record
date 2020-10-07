@@ -64,10 +64,16 @@ begin
 forminprogress
 
 # Command to record at bitrate
-#xterm -iconic -e "ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $resolution -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -b:v 20M -preset superfast '$defaultpath/$filenameoutput'"
+#xterm -iconic -e "ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $resolution -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -b:v 20M -preset ultrafast '$defaultpath/$filenameoutput'"
 
 # To record with a quality level near lossless
 xterm -iconic -e "ffmpeg -vaapi_device /dev/dri/renderD128 -f x11grab -video_size $resolution -i :0 -vf 'hwupload,scale_vaapi=format=nv12' -c:v h264_vaapi -qp 17 -preset ultrafast '$defaultpath/$filenameoutput'"
+
+# *** Documentation ***
+# Using FFMPEG to encode with h264:
+# https://trac.ffmpeg.org/wiki/Encode/H.264
+# Using ffmpeg to encode with vaapi:
+# https://trac.ffmpeg.org/wiki/Hardware/VAAPI
 
 exit 0
 
